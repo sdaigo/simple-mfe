@@ -28,7 +28,7 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: "mfe/app-shell",
-      filename: "removeEntry.js",
+      filename: "remoteEntry.js",
       remotes: {},
       exposes: {},
       shared: {
