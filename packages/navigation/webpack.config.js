@@ -14,6 +14,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /bootstrap\.tsx$/,
+        loader: "bundle-loader",
+        options: {
+          lazy: true,
+        },
+      },
+      {
         test: /\.tsx?$/,
         use: "ts-loader",
       },
@@ -28,11 +35,11 @@ module.exports = {
       template: "./src/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "mfe/navigation",
+      name: "navigation",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./Navigation": "./src/index",
+        "./Navigation": "./src/main",
       },
       shared: {
         ...deps,

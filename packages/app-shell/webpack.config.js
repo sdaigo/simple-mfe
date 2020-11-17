@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: `${__dirname}/dist`,
     filename: "bundle.js",
+    publicPath: "http://localhost:9000/",
   },
   module: {
     rules: [
@@ -27,9 +28,11 @@ module.exports = {
       template: "./src/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "mfe/app-shell",
+      name: "mfe-app-shell",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        nav: "navigation@http://localhost:9001/remoteEntry.js",
+      },
       exposes: {},
       shared: {
         ...deps,

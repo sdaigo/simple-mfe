@@ -1,1 +1,3 @@
-import("./main");
+// @ts-ignore
+import bootstrap from "./bootstrap";
+bootstrap(() => {});
